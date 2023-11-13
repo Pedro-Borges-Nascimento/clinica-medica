@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         function soma(a,b){
+            return a+b;
+         }
+         function calcinss(SalBruto){
+            return INSS;
+         }
+         function calcir (SalBase) {
+           //IR
+           var percIR=0;
+           var descir=0;
+                 if (SalBase>2112.00){
+                        if (SalBase>2826.65) {
+                            if (SalBase>3751.06) {
+                             if (SalBase>4664.68) {
+                                percIR=0.275;
+                              descir=884.96;
+                             }
+                          else {
+                            percIR=0.225;
+                            descir=651.73;
+                        }
+                        }
+                            else {
+                        percIR=0.15;
+                        descir=370.40;
+                         }
+                     }
+                    else {
+                    percIR=0.075;
+                    descir=158.40;
+                }
+             }
+
+             IR=SalBase * percIR - descir;
+
+                return IR;
+            }
+         function Saliq(SalBruto) {
+            inss=calcinss(SalBruto);
+            ir=calcir(SalBruto-inss);
+            return SalBruto-INSS-IR;
+         }
+         console.log(Saliq(20000));
+
+        var IR=0.00;
+        var SalBruto=20000.00;
+        var SalBase=0.00;
+        var INSS=0.00;
+        var percINSS=0.075;
+        var descinss=0;
+        var percIR=0.00;
+        var descir=0.00;
+
+        SalBase = SalBruto - INSS;
+        //inss
+            if (SalBruto>1320){
+                if (SalBruto>2571.29) {
+                    if (SalBruto>3845.94) {
+                        if (SalBruto>7507.49) {
+                            percINSS=0.14;
+                            descinss=174.08;
+                        }
+                        else {
+                            percINSS=0.14;
+                            descinss=174.08;
+                        }
+                    }
+                    else {
+                        percINSS=0.12;
+                        descinss=96.94;
+                    }
+                }
+                else {
+                    percINSS=0.09;
+                    descinss=19.80;
+                }
+            }
+            // console.log(percINSS);
+            INSS=SalBruto*percINSS-descinss;
+            if(INSS>1051.05){
+                INSS=1051.05;
+            }
+            SalBase=SalBruto-INSS;
+            console.log(INSS);
+            console.log(SalBase);
+
+        
+
+            console.log(IR);
+            TotDesc = INSS + IR;
+            Salliq = SalBruto - INSS - IR;
+            console.log(TotDesc)
+            console.log(Salliq)
+
+         
+    </script>
+</body>
+<!-- for (i=0,i<let1,i++);
+    tabela inss
+    x
+    acima 7507.49   1059.x
+    
+    Tabela IR
+    0        - 2112.00  0.0%   0.00
+    2112.01  - 2826.65  7.5%   158.40
+    2826.66  - 3751.06  15.0%  370.40
+    3751.07  - 4664.68  22.5%  651.73
+    Acima de 4664.68    27.5%  884.96
+
+    Sal bruto = 20.000
+    INSS = 7507.49 * 0.14 = 1051.05
+    SB = 20000 - 1051.05 = 18948.95
+    IR = 18948.95 * 0.275 - 884.96 = 5210.96 - 88x
+-->
+</html>
